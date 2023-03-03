@@ -8,7 +8,9 @@ const AI = "ai";
 
 function App() {
   const inputRef = useRef();
-  const [qna, setQna] = useState([]);
+  const [qna, setQna] = useState([
+    {from : AI, value : "Hello, I am Aisha. How can I help you?"},
+  ]);
   const [loading, setLoading] = useState(false);
 
   const updateQNA = (from, value) => {
@@ -18,18 +20,20 @@ function App() {
   const handleSend = () => {
     const question = inputRef.current.value;
     updateQNA(YOU, question);
-
+  
     setLoading(true);
-    axios.get("http://localhost:3000/chat", {
-        question,
-      })
+    axios
+      .post("http://localhost:3000/chat", { question })
       .then((response) => {
+        console.log(response.data)
         updateQNA(AI, response.data.answer);
       })
       .finally(() => {
         setLoading(false);
       });
+      inputRef.current.value = "";
   };
+  
 
   const renderContent = (qna) => {
     const value = qna.value;

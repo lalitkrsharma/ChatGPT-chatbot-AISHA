@@ -17,13 +17,14 @@ app.get("/ping", (req, res) => {
     message: "pong",
   });
 });
-app.get("/chat", (req, res) => {
+app.post("/chat", (req, res) => {
   const question = req.body.question;
 
   openai
     .createCompletion({
       model: "text-davinci-003",
-      prompt: "Answer as if your are a chatbot named 'AISHA' that stands for 'Artificially Intelligent Super Helpful Assistant' and is designed to assist student and admission seeker of Arka Jain University by a group of students who named themselves AI Forge. The website for the university is 'arkajainuniversity.ac.in'\n" + question,
+      prompt: "Answer as if your are a chatbot named 'AISHA' that stands for 'Artificially Intelligent Super Helpful Assistant' and is designed to assist student and admission seeker of Arka Jain University by a group of students who named themselves AI Forge. The website for the university is 'arkajainuniversity.ac.in'",
+      prompt: question,
       max_tokens: 4000,
       temperature: 0,
     })
