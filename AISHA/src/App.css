@@ -1,42 +1,63 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.chat-input {
+  display: flex;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.chat-input input {
+  flex-grow: 1;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.chat-input button {
+  margin-left: 2px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.chats {
+  padding: 3px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.avtar {
+  height: 40px;
+  margin: 5px 10px 0px 0px;
+  border-radius: 50%;
+  border: 1px solid rgb(211, 203, 203);
+  padding: 2px;
+  background-color: rgb(228, 221, 181);
 }
 
-.card {
-  padding: 2em;
+.chat {
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 90%;
+}
+.chat p {
+  flex-grow: 1;
 }
 
-.read-the-docs {
-  color: #888;
+.send .avtar {
+  order: 1;
+}
+.recieve .avtar {
+  order: 0;
+}
+
+.send {
+  align-self: flex-end;
+  background-color: rgb(245, 242, 214);
+}
+.recieve {
+  background-color: rgb(220, 240, 243);
+}
+
+.message-text {
+  margin: 1px;
 }
