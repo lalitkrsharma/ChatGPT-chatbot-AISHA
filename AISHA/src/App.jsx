@@ -23,7 +23,7 @@ function App() {
   
     setLoading(true);
     axios
-      .post("http://localhost:3000/chat", { question })
+      .get("http://localhost:3000/chat", { question })
       .then((response) => {
         console.log(response.data)
         updateQNA(AI, response.data.answer);
